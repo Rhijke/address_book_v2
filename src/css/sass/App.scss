@@ -1,0 +1,177 @@
+@import './variables.scss';
+body {
+  background-color: lighten($baseColor, 30%);
+}
+.modal-btn {
+  align-self: flex-end;
+  padding: 0.5rem;
+  width: 20%;
+  background-color: lightgray;
+}
+
+#address-book {
+  //   border: 1px solid darken($baseColor, 5%);
+  border-radius: $borderRadius;
+  //   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  margin: 1em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 95vw;
+}
+#address-book-header {
+  background-color: $baseColor;
+  font-size: 1.5rem;
+  width: 95vw;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+#address-book-table {
+  width: 100%;
+  font-size: 0.9rem;
+}
+table {
+  th {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 2px darken($color: $baseColor, $amount: 0);
+  }
+  td,
+  th {
+    color: darken($baseColor, 10%);
+  }
+
+  td {
+    text-align: center;
+    vertical-align: middle;
+    &:last-child {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .action-btn {
+      padding: 0.3rem;
+      cursor: pointer;
+      color: darken($color: $baseColor, $amount: 10);
+    }
+    button:hover {
+      color: darken($color: $baseColor, $amount: 20);
+      background-color: lighten($color: $baseColor, $amount: 30);
+    }
+  }
+
+  th {
+    background-color: lighten($baseColor, 50%);
+    font-weight: 600;
+  }
+
+  tr {
+    width: 100%;
+    &:nth-child(2n) {
+      background-color: white;
+    }
+    &:nth-child(2n + 1) {
+      background-color: lighten($color: $baseColor, $amount: 39);
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  #address-book {
+    width: 80vw;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+  }
+  #address-book-header {
+    margin-top: 0;
+    background-color: $baseColor;
+    color: white;
+    font-size: 1.5em;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    border-radius: 0;
+  }
+  table,
+  tr,
+  td {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+  }
+
+  #table-heading {
+    display: none;
+  }
+  tr {
+    padding: 1rem 0;
+  }
+  td {
+    &:nth-child(1):before {
+      content: 'Customer ID:';
+    }
+    &:nth-child(2):before {
+      content: 'First name:';
+    }
+    &:nth-child(3):before {
+      content: 'Last name:';
+    }
+    &:nth-child(4):before {
+      content: 'Phone:';
+    }
+    &:nth-child(5):before {
+      content: 'Email:';
+    }
+    &:nth-child(6):before {
+      content: 'Street:';
+    }
+    &:nth-child(7):before {
+      content: 'City:';
+    }
+    &:nth-child(8):before {
+      content: 'State:';
+    }
+    &:nth-child(9):before {
+      content: 'Zip code:';
+    }
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: left;
+    margin: 0 1rem;
+    border-bottom: 1px dotted darken($color: $baseColor, $amount: 19);
+    word-wrap: break-word;
+  }
+}
+@media screen and (max-width: 650px) {
+  .App {
+    // width: 100vw;
+  }
+  nav {
+    width: 100%;
+  }
+  #address-book {
+    width: 100%;
+  }
+
+  #address-book-header {
+    font-size: 1.3rem;
+    justify-content: space-between;
+  }
+}
